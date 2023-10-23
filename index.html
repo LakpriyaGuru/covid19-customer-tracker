@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Covid19 Customer Info</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+	<div class="center">
+
+		<form method="post" action="connect.php">
+			<h1>Covid-19 Customer Tracker</h1>
+			<div class="txt_field">
+				<label>Name</label>
+				<input type="text" name="name">
+			</div>
+			<div class="txt_field">
+				<label>City</label>
+				<input type="text" name="city">
+			</div>
+			<div class="txt_field">
+				<label>NIC</label>
+				<input type="text" name="nic" maxlength="12" placeholder="xxxxxxxxx V / xxxxxxxxxxxx" required>
+			</div>
+			<div class="txt_field">
+				<label>Contact No</label>
+				<input type="text" name="contactNo" maxlength="10" placeholder="07xxxxxxxx" pattern="[0-9]{10}"
+					required>
+			</div>
+			<input type="reset" value="Clear">
+			<input type="submit" value="Submit" id="submit">
+		</form>
+	</div>
+</body>
+
+<!--
+<script type="text/javascript">
+	$(function(){
+		$('submit').click(function(e){
+			var valid = this.form.checkValidity();
+
+			if(valid){
+				var name = $('name').val();
+				var city = $('city').val();
+				var nic = $('nic').val();
+				var contactNo = $('contactNo').val();
+
+				e.preventDefault();
+
+				$.ajax({
+					type: 'POST',
+					url: 'process.php',
+					data: {name: name, city: city, nic: nic, contactNo: contactNo},
+
+					success: function(data){
+						Swal.fire({
+							'title': 'Successful',
+							'text': 'Successfully Registered',
+							'type': 'success'
+						})
+					},
+					error: function(data){
+						Swal.fire({
+							'title': 'Errors',
+							'text': 'Error',
+							'type': 'error'
+						})
+					}
+				});
+				alert('true');
+			} else {
+				alert('false');
+			}
+		})
+	})
+
+</script>
+-->
+</html>
